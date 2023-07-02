@@ -17,7 +17,7 @@ function Banner({ netflixOriginals }: Props) {
       netflixOriginals[Math.floor(Math.random() * netflixOriginals.length)]
     );
   }, [netflixOriginals]);
-  console.log(movie);
+  console.log("Banner", movie);
   return (
     <div
       className="flex flex-col space-y-2 py-16 md:space-y-4 lg:h-[65vh] lg:justify-end
@@ -49,5 +49,5 @@ function Banner({ netflixOriginals }: Props) {
     </div>
   );
 }
-
+//1:30:02
 export default Banner;

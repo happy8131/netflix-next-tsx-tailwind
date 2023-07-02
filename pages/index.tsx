@@ -1,7 +1,9 @@
+import { GetServerSideProps } from "next";
 import Head from "next/head";
 import Image from "next/image";
 import Banner from "../components/Banner";
 import Header from "../components/Header";
+import Row from "../components/Row";
 import { Movie } from "../typings";
 import requests from "../utils/requests";
 
@@ -26,7 +28,7 @@ const Home = ({
   topRated,
   trendingNow,
 }: Props) => {
-  console.log(netflixOriginals);
+  console.log("index.tsx movies", trendingNow);
   return (
     <div
       className="relative h-screen bg-gradient-to-b from-gray-900/10
@@ -39,7 +41,17 @@ const Home = ({
       <Header />
       <main className="relative pl-4 pb-24 lg:space-y-24 lg:pl-16">
         <Banner netflixOriginals={netflixOriginals} />
-        <section className=""></section>
+        <section className="md:space-y-24">
+          <Row title="Trending Now" movies={trendingNow} />
+          <Row title="Top Rated" movies={topRated} />
+          <Row title="Action Thrillers" movies={actionMovies} />
+          {/* My List */}
+
+          <Row title="Comedies" movies={comedyMovies} />
+          <Row title="Scary Movies" movies={horrorMovies} />
+          <Row title="Romance Movies" movies={romanceMovies} />
+          <Row title="Documentaries" movies={documentaries} />
+        </section>
       </main>
     </div>
   );
@@ -47,7 +59,7 @@ const Home = ({
 
 export default Home;
 
-export const getServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const [
     netflixOriginals,
     trendingNow,
