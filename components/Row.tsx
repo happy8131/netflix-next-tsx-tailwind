@@ -62,5 +62,5 @@ function Row({ title, movies }: Props) {
     </div>
   );
 }
-
+// 2:00
 export default Row;
