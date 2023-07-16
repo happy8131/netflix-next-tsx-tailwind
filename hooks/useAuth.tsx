@@ -29,7 +29,7 @@ const AuthContext = createContext<IAuth>({
 });
 
 interface AuthProviderProps {
-  chiuldren: React.ReactNode;
+  children: React.ReactNode;
 }
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [error, setError] = useState(null);
   const [initialLoading, setInitialLoading] = useState(true);
   const router = useRouter();
-
+  // password test1234
   // Persisting the user
   useEffect(
     () =>
@@ -92,7 +92,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       .then(() => {
         setUser(null);
       })
-      .catch((err) => alert(err.message))
+      .catch((error) => alert(error.message))
       .finally(() => setLoading(false));
   };
 
