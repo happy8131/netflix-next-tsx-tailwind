@@ -32,7 +32,6 @@ const Home = ({
   topRated,
   trendingNow,
 }: Props) => {
-  console.log("index.tsx movies", trendingNow);
   const { loading } = useAuth();
 
   const showModal = useRecoilValue(modalState);
